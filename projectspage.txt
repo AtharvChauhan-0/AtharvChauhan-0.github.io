@@ -1,0 +1,173 @@
+// src/pages/ProjectsPage.tsx
+import React from 'react';
+import styled from 'styled-components';
+
+const ProjectsContainer = styled.main`
+  padding-top: 120px;
+  padding-bottom: 5rem;
+`;
+
+const SectionTitle = styled.h2`
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    background-color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ProjectCard = styled.div`
+  background-color: ${({ theme }) => theme.colors.secondary};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  overflow: hidden;
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  transition: ${({ theme }) => theme.transition};
+  
+  &:hover {
+    transform: translateY(-10px);
+  }
+`;
+
+const ProjectImage = styled.div`
+  height: 200px;
+  background-color: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
+
+const ProjectContent = styled.div`
+  padding: 1.5rem;
+`;
+
+const ProjectTitle = styled.h3`
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 0.5rem;
+`;
+
+const ProjectDescription = styled.p`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-bottom: 1.5rem;
+`;
+
+const TechStack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+const TechTag = styled.span`
+  background-color: rgba(56, 189, 248, 0.1);
+  color: ${({ theme }) => theme.colors.accent};
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+`;
+
+const ProjectLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const ProjectLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+const ProjectsPage: React.FC = () => {
+  return (
+    <ProjectsContainer>
+      <div className="container">
+        <SectionTitle>My Projects</SectionTitle>
+        <ProjectsGrid>
+          <ProjectCard>
+            <ProjectImage>
+              Cloud Migration Project
+            </ProjectImage>
+            <ProjectContent>
+              <ProjectTitle>Enterprise Cloud Migration</ProjectTitle>
+              <ProjectDescription>
+                Led the migration of a legacy on-premises infrastructure to AWS, implementing a secure and scalable architecture while ensuring minimal downtime.
+              </ProjectDescription>
+              <TechStack>
+                <TechTag>AWS</TechTag>
+                <TechTag>Terraform</TechTag>
+                <TechTag>Docker</TechTag>
+                <TechTag>EKS</TechTag>
+                <TechTag>RDS</TechTag>
+              </TechStack>
+              <ProjectLinks>
+                <ProjectLink href="#" target="_blank" rel="noopener noreferrer">Case Study</ProjectLink>
+                <ProjectLink href="#" target="_blank" rel="noopener noreferrer">Architecture Diagram</ProjectLink>
+              </ProjectLinks>
+            </ProjectContent>
+          </ProjectCard>
+          
+          <ProjectCard>
+            <ProjectImage>
+              Microservices Platform
+            </ProjectImage>
+            <ProjectContent>
+              <ProjectTitle>Microservices Platform</ProjectTitle>
+              <ProjectDescription>
+                Designed and implemented a cloud-native microservices platform using Kubernetes, service mesh, and CI/CD pipelines for rapid deployment.
+              </ProjectDescription>
+              <TechStack>
+                <TechTag>Kubernetes</TechTag>
+                <TechTag>Istio</TechTag>
+                <TechTag>GitHub Actions</TechTag>
+                <TechTag>Helm</TechTag>
+                <TechTag>Go</TechTag>
+              </TechStack>
+              <ProjectLinks>
+                <ProjectLink href="#" target="_blank" rel="noopener noreferrer">GitHub</ProjectLink>
+                <ProjectLink href="#" target="_blank" rel="noopener noreferrer">Documentation</ProjectLink>
+              </ProjectLinks>
+            </ProjectContent>
+          </ProjectCard>
+          
+          <ProjectCard>
+            <ProjectImage>
+              Serverless App
+            </ProjectImage>
+            <ProjectContent>
+              <ProjectTitle>Serverless Data Processing</ProjectTitle>
+              <ProjectDescription>
+                Built a scalable, event-driven data processing pipeline using serverless technologies, handling millions of events daily with minimal operational overhead.
+              </ProjectDescription>
+              <TechStack>
+                <TechTag>AWS Lambda</TechTag>
+                <TechTag>DynamoDB</TechTag>
+                <TechTag>SQS</TechTag>
+                <TechTag>API Gateway</TechTag>
+                <TechTag>Python</TechTag>
+              </TechStack>
+              <ProjectLinks>
+                <ProjectLink href="#" target="_blank" rel="noopener noreferrer">Architecture</ProjectLink>
+                <ProjectLink href="#" target="_blank" rel="noopener noreferrer">Demo
